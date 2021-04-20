@@ -1,23 +1,26 @@
 package com.huawei.springbootdemo;
 
 import com.huawei.springbootdemo.bean.Student;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
 @SpringBootApplication
 @MapperScan("com.huawei.springbootdemo.mapper")
 public class MytestApplication {
-    public static void main(String[] args){
-        SpringApplication.run(MytestApplication.class,args);
+    public static void main(String[] args) {
+        SpringApplication.run(MytestApplication.class, args);
         mytest();
+        testArrayList();
     }
-    public static void mytest(){
+
+    public static void mytest() {
         // 创建集合
         List<String> list = Arrays.asList("张三", "李四", "王五");
 // 创建一个串行流
@@ -92,6 +95,24 @@ public class MytestApplication {
         List<String> studentNames =
                 students.stream().map(Student::getName).collect(Collectors.toList());
         System.out.println(studentNames);
+
+        // 获取每个学生的姓名+","+sex组成新的字符串
+
+        List<String> stringStream = students.stream().map
+                (student -> (student.getName() + "," + student.getSex())).
+                collect(Collectors.toList());
+        boolean contains = stringStream.contains("王五,male");
+        log.info("[mytest]:contains={}", contains);
+        System.out.println("测试map映射拼接1：" + stringStream);
+
+        List<String> stringStream3 = students.stream().map(
+                student -> (student.getName() + "," + student.getSex())).flatMap(
+                        s -> Arrays.stream(s.split(","))).collect(Collectors.toList());
+        System.out.println("测试map映射拼接3：" + stringStream3);
+              ;
+        boolean contains3 = stringStream3.contains("王五");
+        log.info("[mytest]={}", contains3);
+
 // 每个学生的成绩加10分
         List<Double> studentScores = students.stream().map(student -> student.getScore() + 10)
                 .collect(Collectors.toList());
@@ -153,4 +174,30 @@ public class MytestApplication {
 
     }
 
+    private static void testArrayList() { // 创建1个空列表
+
+        List<String> arrlist = new ArrayList<>();
+
+        // 添加测试数据
+
+        arrlist.add("老九161");
+        arrlist.add("李四");
+        arrlist.add("小张");
+        arrlist.add("张三");
+        arrlist.add("小红");
+
+        // 列表是否包含元素 161
+
+        boolean res = arrlist.contains("老九161");
+
+        if (res == true) {
+
+            System.out.println("包含");
+
+        } else {
+
+            System.out.println("不包含");
+
+        }
+    }
 }
