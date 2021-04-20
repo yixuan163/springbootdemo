@@ -10,6 +10,4 @@ public class MytestController {
     public String show() {
             return "success";
     }
-
-
 }
