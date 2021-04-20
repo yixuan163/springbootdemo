@@ -1,14 +1,14 @@
 package com.huawei.springbootdemo.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class MytestController {
 
     @RequestMapping("/index")
     public String show() {
-            return "index";
+            return "success";
     }
 
 
