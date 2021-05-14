@@ -1,12 +1,34 @@
 spring:
-    datasource:
-        name: test  #���ݿ���
-        url: jdbc:mysql://192.168.25.128:3306/test #url
-        username: root  #�û���
-        password: admin  #����
-        driver-class-name: com.mysql.jdbc.Driver  #���ݿ���������
+  datasource:
+    name: test
+    url: jdbc:mysql://192.168.25.128:3306/test
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
 
 
 mybatis:
-    mapper-locations: classpath:mapper/*.xml  #����ӳ���ļ�
-    type-aliases-package: com.huawei.springbootdemo.bean #����ʵ����
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.huawei.springbootdemo.bean
+
+logging:
+  path:
+    springbootemo
+  # 不指定路径在当前项目下生成springboot.log日志
+  # 可以指定完整的路径；
+  file:
+    springboot.log
+
+  level:
+    com:
+      huawei:
+        springbootdemo:
+          mapper:
+            info
+
+
+
+
+
+
+
