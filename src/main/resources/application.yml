@@ -13,8 +13,8 @@ mybatis:
 
 logging:
   path:
-    springbootemo
-  # 不指定路径在当前项目下生成springboot.log日志
+    progress
+  # 不指定路径在当前项目下生成progress.log日志
   # 可以指定完整的路径；
   file:
     springboot.log
