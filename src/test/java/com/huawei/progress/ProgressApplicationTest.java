@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class MytestApplicationTest {
+public class ProgressApplicationTest {
     @Autowired
     UserService userService;
 
@@ -66,7 +66,7 @@ public class MytestApplicationTest {
         studentBeans.add(new StudentBean("8", "小明", 18, "male", 100));
         studentBeans.add(new StudentBean("9", "小红", 22, "female", 95));
         studentBeans.add(new StudentBean("10", "小张", 25, "male", 90));
-        studentBeans.stream().forEach(System.out::println);
+        studentBeans.forEach(System.out::println);
 
         // 过滤出成绩100分的学生
         System.out.println("过滤出成绩100分的学生");
@@ -184,7 +184,7 @@ public class MytestApplicationTest {
     }
 
     @Test
-    private static void testArrayList() { // 创建1个空列表
+    public void testArrayList() { // 创建1个空列表
 
         List<String> arrlist = new ArrayList<>();
 
@@ -200,7 +200,7 @@ public class MytestApplicationTest {
 
         boolean res = arrlist.contains("老九161");
 
-        if (res == true) {
+        if (res) {
 
             System.out.println("包含");
 
