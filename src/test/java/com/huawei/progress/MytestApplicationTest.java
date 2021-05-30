@@ -1,9 +1,9 @@
-package com.huawei.springbootdemo;
+package com.huawei.progress;
 
-import com.huawei.springbootdemo.bean.StudentBean;
-import com.huawei.springbootdemo.bean.UserBean;
-import com.huawei.springbootdemo.common.Contans;
-import com.huawei.springbootdemo.service.UserService;
+import com.huawei.progress.bean.StudentBean;
+import com.huawei.progress.bean.UserBean;
+import com.huawei.progress.common.Contans;
+import com.huawei.progress.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -183,6 +183,7 @@ public class MytestApplicationTest {
 
     }
 
+    @Test
     private static void testArrayList() { // 创建1个空列表
 
         List<String> arrlist = new ArrayList<>();

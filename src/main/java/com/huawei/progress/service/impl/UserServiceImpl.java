@@ -1,8 +1,8 @@
-package com.huawei.springbootdemo.service.impl;
+package com.huawei.progress.service.impl;
 
-import com.huawei.springbootdemo.bean.UserBean;
-import com.huawei.springbootdemo.mapper.UserMapper;
-import com.huawei.springbootdemo.service.UserService;
+import com.huawei.progress.bean.UserBean;
+import com.huawei.progress.mapper.UserMapper;
+import com.huawei.progress.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;

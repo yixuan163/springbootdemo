@@ -1,4 +1,4 @@
-package com.huawei.springbootdemo.bean;
+package com.huawei.progress.bean;
 
 import lombok.Data;
 

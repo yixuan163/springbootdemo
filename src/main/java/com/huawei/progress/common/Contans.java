@@ -1,4 +1,4 @@
-package com.huawei.springbootdemo.common;
+package com.huawei.progress.common;
 
 /**
  *

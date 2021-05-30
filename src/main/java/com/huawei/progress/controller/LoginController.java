@@ -1,8 +1,7 @@
-package com.huawei.springbootdemo.controller;
+package com.huawei.progress.controller;
 
-import com.huawei.springbootdemo.bean.UserBean;
-import com.huawei.springbootdemo.service.UserService;
-import org.apache.ibatis.annotations.Select;
+import com.huawei.progress.bean.UserBean;
+import com.huawei.progress.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
