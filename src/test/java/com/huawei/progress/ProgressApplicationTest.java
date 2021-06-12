@@ -122,7 +122,7 @@ public class ProgressApplicationTest {
         boolean contains3 = stringStream3.contains("王五");
         log.info("[mytest]={}", contains3);
 
-// 每个学生的成绩加10分
+        // 每个学生的成绩加10分
         List<Double> studentScores = studentBeans.stream().map(studentBean -> studentBean.getScore() + 10)
                 .collect(Collectors.toList());
         System.out.println(studentScores);
