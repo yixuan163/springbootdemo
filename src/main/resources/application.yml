@@ -1,3 +1,9 @@
+server:
+  #端口号
+  port: 9086
+
+  servlet:
+    context-path: /progress
 spring:
   datasource:
     name: test
@@ -5,7 +11,6 @@ spring:
     username: root
     password: admin
     driver-class-name: com.mysql.jdbc.Driver
-
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
@@ -17,7 +22,7 @@ logging:
   # 不指定路径在当前项目下生成progress.log日志
   # 可以指定完整的路径；
   file:
-    springboot.log
+    progress.log
 
   level:
     com:
