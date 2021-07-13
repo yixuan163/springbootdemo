@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-@MapperScan("com.huawei.progress.mapper")
+@MapperScan("com.huawei.progress.biz.common.mapper,com.huawei.progress.biz.mytest.mapper")
 public class ProgressApplication {
     public static void main(String[] args) {
         SpringApplication.run(ProgressApplication.class, args);

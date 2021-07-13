@@ -1,0 +1,30 @@
+2021-06-29 19:36:51.251  INFO 3104 --- [main] com.huawei.progress.ProgressApplication  : Starting ProgressApplication on DESKTOP-U0PQ049 with PID 3104 (D:\IdeaProjects\progress\target\classes started by Administrator in D:\IdeaProjects\progress)
+2021-06-29 19:36:51.267  INFO 3104 --- [main] com.huawei.progress.ProgressApplication  : No active profile set, falling back to default profiles: default
+2021-06-29 19:36:51.985 ERROR 3104 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:36:52.095 ERROR 3104 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:36:52.157  INFO 3104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9086 (http)
+2021-06-29 19:36:52.173 ERROR 3104 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:36:52.173  INFO 3104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-29 19:36:52.173  INFO 3104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-06-29 19:36:52.267  INFO 3104 --- [main] o.a.c.c.C.[.[localhost].[/progress]      : Initializing Spring embedded WebApplicationContext
+2021-06-29 19:36:52.267  INFO 3104 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 969 ms
+2021-06-29 19:36:52.517  WARN 3104 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.huawei.progress.biz.model.MyTestModel".
+2021-06-29 19:36:52.923  INFO 3104 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-29 19:36:53.016  INFO 3104 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-29 19:36:53.126  INFO 3104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9086 (http) with context path '/progress'
+2021-06-29 19:36:53.126  INFO 3104 --- [main] com.huawei.progress.ProgressApplication  : Started ProgressApplication in 2.25 seconds (JVM running for 3.542)
+2021-06-29 19:44:32.347  INFO 8248 --- [main] com.huawei.progress.ProgressApplication  : Starting ProgressApplication on DESKTOP-U0PQ049 with PID 8248 (D:\IdeaProjects\progress\target\classes started by Administrator in D:\IdeaProjects\progress)
+2021-06-29 19:44:32.347  INFO 8248 --- [main] com.huawei.progress.ProgressApplication  : No active profile set, falling back to default profiles: default
+2021-06-29 19:44:33.035 ERROR 8248 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:44:33.144 ERROR 8248 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:44:33.207  INFO 8248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9086 (http)
+2021-06-29 19:44:33.207 ERROR 8248 --- [main] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.33] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2021-06-29 19:44:33.222  INFO 8248 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-29 19:44:33.222  INFO 8248 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.21]
+2021-06-29 19:44:33.316  INFO 8248 --- [main] o.a.c.c.C.[.[localhost].[/progress]      : Initializing Spring embedded WebApplicationContext
+2021-06-29 19:44:33.316  INFO 8248 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 922 ms
+2021-06-29 19:44:33.503  WARN 8248 --- [main] c.b.m.core.metadata.TableInfoHelper      : Can not find table primary key in Class: "com.huawei.progress.biz.model.MyTestModel".
+2021-06-29 19:44:33.910  INFO 8248 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-29 19:44:34.003  INFO 8248 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2021-06-29 19:44:34.097  INFO 8248 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9086 (http) with context path '/progress'
+2021-06-29 19:44:34.097  INFO 8248 --- [main] com.huawei.progress.ProgressApplication  : Started ProgressApplication in 2.265 seconds (JVM running for 3.229)

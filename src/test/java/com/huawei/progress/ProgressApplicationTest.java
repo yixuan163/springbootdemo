@@ -1,9 +1,9 @@
 package com.huawei.progress;
 
-import com.huawei.progress.bean.StudentBean;
-import com.huawei.progress.bean.UserBean;
+import com.huawei.progress.biz.model.StudentModel;
+import com.huawei.progress.biz.model.UserModel;
 import com.huawei.progress.common.Contans;
-import com.huawei.progress.service.UserService;
+import com.huawei.progress.biz.common.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +24,9 @@ public class ProgressApplicationTest {
 
     @Test
     public void contextLoads() {
-        UserBean userBean = userService.loginIn("test1", "123");
+        UserModel userModel = userService.loginIn("test1", "123");
         System.out.println("该用户ID为：");
-        System.out.println(userBean.getId());
+        System.out.println(userModel.getId());
     }
 
     @Test
@@ -55,67 +55,67 @@ public class ProgressApplicationTest {
         Stream<UUID> stream4 = Stream.generate(UUID::randomUUID).limit(2);
         stream4.forEach(System.out::println);
 
-        List<StudentBean> studentBeans = new ArrayList<>(16);
-        studentBeans.add(new StudentBean("1", "张三", 18, "male", 88));
-        studentBeans.add(new StudentBean("2", "李四", 17, "male", 60));
-        studentBeans.add(new StudentBean("3", "王五", 18, "male", 100));
-        studentBeans.add(new StudentBean("4", "赵六", 20, "male", 10));
-        studentBeans.add(new StudentBean("5", "董七", 14, "female", 95));
-        studentBeans.add(new StudentBean("6", "幺八", 21, "male", 55));
-        studentBeans.add(new StudentBean("7", "老九", 20, "female", 66));
-        studentBeans.add(new StudentBean("8", "小明", 18, "male", 100));
-        studentBeans.add(new StudentBean("9", "小红", 22, "female", 95));
-        studentBeans.add(new StudentBean("10", "小张", 25, "male", 90));
-        studentBeans.forEach(System.out::println);
+        List<StudentModel> studentModels = new ArrayList<>(16);
+        studentModels.add(new StudentModel("1", "张三", 18, "male", 88));
+        studentModels.add(new StudentModel("2", "李四", 17, "male", 60));
+        studentModels.add(new StudentModel("3", "王五", 18, "male", 100));
+        studentModels.add(new StudentModel("4", "赵六", 20, "male", 10));
+        studentModels.add(new StudentModel("5", "董七", 14, "female", 95));
+        studentModels.add(new StudentModel("6", "幺八", 21, "male", 55));
+        studentModels.add(new StudentModel("7", "老九", 20, "female", 66));
+        studentModels.add(new StudentModel("8", "小明", 18, "male", 100));
+        studentModels.add(new StudentModel("9", "小红", 22, "female", 95));
+        studentModels.add(new StudentModel("10", "小张", 25, "male", 90));
+        studentModels.forEach(System.out::println);
 
         // 过滤出成绩100分的学生
         System.out.println("过滤出成绩100分的学生");
-        List<StudentBean> students1 =
-                studentBeans.stream().filter(studentBean -> studentBean.getScore() == 100).collect(Collectors.toList());
+        List<StudentModel> students1 =
+                studentModels.stream().filter(studentModel -> studentModel.getScore() == 100).collect(Collectors.toList());
         students1.forEach(System.out::println);
 
         System.out.println("串行流，匹配第一个");
         // 串行流，匹配第一个
-        Optional<StudentBean> studentOptional =
-                studentBeans.stream().filter(studentBean -> studentBean.getAge() >= 20).findFirst();
+        Optional<StudentModel> studentOptional =
+                studentModels.stream().filter(studentModel -> studentModel.getAge() >= 20).findFirst();
         if (studentOptional.isPresent()) {
-            StudentBean studentBean = studentOptional.get();
-            System.out.println(studentBean);
+            StudentModel studentModel = studentOptional.get();
+            System.out.println(studentModel);
         }
 // 上面输出语句可简写如下
 // studentOptional.ifPresent(System.out::println);
         System.out.println("行流，匹配任意一个，findAny一般用于并行流");
 // 并行流，匹配任意一个，findAny一般用于并行流
-        Optional<StudentBean> studentOptiona2 =
-                studentBeans.parallelStream().filter(studentBean -> studentBean.getAge() >= Contans.INDEX_TWENTY).findAny();
+        Optional<StudentModel> studentOptiona2 =
+                studentModels.parallelStream().filter(studentModel -> studentModel.getAge() >= Contans.INDEX_TWENTY).findAny();
         studentOptiona2.ifPresent(System.out::println);
         System.out.println("匹配 match");
 // 是否存在100分的学生
-        boolean anyMatch = studentBeans.stream().anyMatch(studentBean -> studentBean.getScore() == 100);
+        boolean anyMatch = studentModels.stream().anyMatch(studentModel -> studentModel.getScore() == 100);
 // 是否全部学生都100分
-        boolean allMatch = studentBeans.stream().allMatch(studentBean -> studentBean.getScore() == 100);
+        boolean allMatch = studentModels.stream().allMatch(studentModel -> studentModel.getScore() == 100);
 // 是否全部学生都没有100分
-        boolean noneMatch = studentBeans.stream().noneMatch(studentBean -> studentBean.getScore() == 100);
+        boolean noneMatch = studentModels.stream().noneMatch(studentModel -> studentModel.getScore() == 100);
         System.out.println(anyMatch);
         System.out.println(allMatch);
         System.out.println(noneMatch);
 
         // 获取每个学生的姓名
         List<String> studentNames =
-                studentBeans.stream().map(StudentBean::getName).collect(Collectors.toList());
+                studentModels.stream().map(StudentModel::getName).collect(Collectors.toList());
         System.out.println(studentNames);
 
         // 获取每个学生的姓名+","+sex组成新的字符串
 
-        List<String> stringStream = studentBeans.stream().map
-                (studentBean -> (studentBean.getName() + "," + studentBean.getSex())).
+        List<String> stringStream = studentModels.stream().map
+                (studentModel -> (studentModel.getName() + "," + studentModel.getSex())).
                 collect(Collectors.toList());
         boolean contains = stringStream.contains("王五,male");
         log.info("[mytest]:contains={}", contains);
         System.out.println("测试map映射拼接1：" + stringStream);
 
-        List<String> stringStream3 = studentBeans.stream().map(
-                studentBean -> (studentBean.getName() + "," + studentBean.getSex())).flatMap(
+        List<String> stringStream3 = studentModels.stream().map(
+                studentModel -> (studentModel.getName() + "," + studentModel.getSex())).flatMap(
                 s -> Arrays.stream(s.split(","))).collect(Collectors.toList());
         System.out.println("测试map映射拼接3：" + stringStream3);
         ;
@@ -123,7 +123,7 @@ public class ProgressApplicationTest {
         log.info("[mytest]={}", contains3);
 
         // 每个学生的成绩加10分
-        List<Double> studentScores = studentBeans.stream().map(studentBean -> studentBean.getScore() + 10)
+        List<Double> studentScores = studentModels.stream().map(studentModel -> studentModel.getScore() + 10)
                 .collect(Collectors.toList());
         System.out.println(studentScores);
 
@@ -133,12 +133,12 @@ public class ProgressApplicationTest {
 
         System.out.println("imit方法用于获取指定数量的流。例如下面演示取出学习成绩大于70的5个人");
         // limit方法用于获取指定数量的流。例如下面演示取出学习成绩大于70的5个人
-        List<StudentBean> students2 = studentBeans.stream().filter(studentBean -> studentBean.getScore() > 70)
+        List<StudentModel> students2 = studentModels.stream().filter(studentModel -> studentModel.getScore() > 70)
                 .limit(5).collect(Collectors.toList());
         students2.forEach(System.out::println);
         System.out.println("跳过第一个再取2个");
 // 跳过第一个再取2个
-        List<StudentBean> students8 = studentBeans.stream().skip(1).limit(2).collect(Collectors.toList());
+        List<StudentModel> students8 = studentModels.stream().skip(1).limit(2).collect(Collectors.toList());
         students8.forEach(System.out::println);
         System.out.println("获取5个int随机数,按从小到大排序");
 // 获取5个int随机数,按从小到大排序
@@ -147,24 +147,24 @@ public class ProgressApplicationTest {
 
         System.out.println("成绩排序");
         // 按成绩升序
-        List<StudentBean> students3 = studentBeans.stream().sorted(Comparator.comparing(StudentBean::getScore))
+        List<StudentModel> students3 = studentModels.stream().sorted(Comparator.comparing(StudentModel::getScore))
                 .collect(Collectors.toList());
         System.out.println("按成绩升序");
         students3.forEach(System.out::println);
 // 按成绩降序
-        List<StudentBean> students4 =
-                studentBeans.stream().sorted(Comparator.comparing(StudentBean::getScore).reversed())
+        List<StudentModel> students4 =
+                studentModels.stream().sorted(Comparator.comparing(StudentModel::getScore).reversed())
                         .collect(Collectors.toList());
         System.out.println("按成绩降序");
         students4.forEach(System.out::println);
 // 按成绩升序，再按年龄升序
-        List<StudentBean> students5 = studentBeans.stream()
-                .sorted(Comparator.comparing(StudentBean::getScore).thenComparing(StudentBean::getAge))
+        List<StudentModel> students5 = studentModels.stream()
+                .sorted(Comparator.comparing(StudentModel::getScore).thenComparing(StudentModel::getAge))
                 .collect(Collectors.toList());
         System.out.println("按成绩升序，再按年龄升序");
         students5.forEach(System.out::println);
 // 按成绩升序，再按年龄降序
-        List<StudentBean> students6 = studentBeans.stream().sorted((s1, s2) -> {
+        List<StudentModel> students6 = studentModels.stream().sorted((s1, s2) -> {
             if (s1.getScore() != s2.getScore()) {
                 return (int) (s1.getScore() - s2.getScore());
             } else {
